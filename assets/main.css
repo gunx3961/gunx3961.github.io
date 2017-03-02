@@ -1,3 +1,21 @@
 body {
   margin: 0 5%;
+  color: lightgray;
+  background-color: #1f1f1f;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 0),
+    linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 0),
+    linear-gradient(rgba(255, 255, 255, .1) 2px, transparent 0),
+    linear-gradient(90deg, rgba(255, 255, 255, .1) 2px, transparent 0);
+  background-size:
+    16px 16px,
+    16px 16px,
+    128px 128px,
+    128px 128px;
+  background-position: 23px 42px;
+}
+
+*::selection {
+  color: #1f1f1f;
+  background-color: white;
 }
