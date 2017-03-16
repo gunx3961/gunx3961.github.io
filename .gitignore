@@ -1,5 +1,6 @@
-node_modules/*
-
-.vscode/*
-typings/*
+.DS_Store
+node_modules/
+npm-debug.log
 debug.log
+.vscode/
+typings/

@@ -1,16 +1,17 @@
 {
   "name": "gunx3961.github.io",
+  "description": "A SPA blog based on Vue.js",
   "version": "0.0.1",
-  "description": "A simple blog site",
-  "main": "src/index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
-  "repository": {
+    "repository": {
     "type": "git",
     "url": "git+https://github.com/gunx3961/gunx3961.github.io.git"
   },
-  "author": "gunx@foxmail.com",
+  "author": "Gunx <gunx@foxmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gunx3961/gunx3961.github.io/issues"
@@ -21,6 +22,16 @@
     "vue": "^2.2.4"
   },
   "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-latest": "^6.0.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.1",
     "eslint": "^3.17.1",
     "eslint-config-airbnb-base": "^11.1.1",
     "eslint-plugin-import": "^2.2.0",
