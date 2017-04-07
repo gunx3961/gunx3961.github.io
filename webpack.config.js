@@ -8,6 +8,13 @@ module.exports = {
     publicPath: '/assets/',
     filename: 'build.js',
   },
+  resolve: {
+    extensions: ['.js', '.vue', '.scss'],
+    alias: {
+      vue$: 'vue/dist/vue.esm.js',
+      styles: path.resolve(__dirname, 'src/styles'),
+    },
+  },
   module: {
     rules: [
       {
@@ -37,12 +44,6 @@ module.exports = {
         },
       },
     ],
-  },
-  resolve: {
-    alias: {
-      vue$: 'vue/dist/vue.esm.js',
-      styles: path.resolve(__dirname, 'src/styles'),
-    },
   },
   devServer: {
     historyApiFallback: true,

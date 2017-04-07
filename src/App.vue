@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import HudButton from './HudButton.vue';
+import HudButton from './components/HudButton';
 
 export default {
   name: 'app',
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'styles/vars.scss';
+@import '~styles/vars';
 
 body {
   margin: 0 5%;

@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'styles/vars.scss';
+@import '~styles/vars';
 button {
   position: relative;
   background: transparent;
