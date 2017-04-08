@@ -4,3 +4,9 @@ $positive-color: #d3d3d3;
 $negative-color: #1f1f1f;
 $intermediate-color: rgba($positive-color, .15);
 
+$header-width: 20rem;
+
+@mixin side-line($color: $positive-color, $width: .5rem) {
+  border-left: $width solid $color;
+  padding-left: 1rem;
+}
