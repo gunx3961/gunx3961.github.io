@@ -1,6 +1,10 @@
 <template>
 <div id="profile">  
   <div id="logo"></div>
+  <div id="contact-me">
+    <span>gunx@fonxmail.com</span><br>
+    <a href="http://www.weibo.com/gunx">@Gunx</a>
+  </div>
 </div>
 </template>
 
@@ -48,15 +52,15 @@
 }
 
 $logo-matrix: (
-"xxxxx x   x x   x x   x   ",
+" xxx  x   x x   x x   x   ",
 "x     x   x xx  x  x x    ",
 "x  xx x   x x x x   x     ",
-"x   x x   x x  xx  x x    ",
-"xxxxx xxxxx x   x x   x x ",
+"x   x x  xx x  xx  x x    ",
+"xxxxx xxx x x   x x   x x ",
 "",
-"         x x  x xxxx xxxx ",
-"         x xx x x    x  x ",
-"         x x xx xxxx x  x ",
+"         x  xxx  xxx  xxx ",
+"           x  x x    x  x ",
+"         x x  x xxxx x  x ",
 "         x x  x x    xxxx "
 );
 
@@ -66,5 +70,10 @@ $logo-matrix: (
 
 #profile {
   @include side-line($negative-color);
+
+  #contact-me {
+    margin: 1rem 0;
+    line-height: 2rem;
+  }
 }
 </style>
