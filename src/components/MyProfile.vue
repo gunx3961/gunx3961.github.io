@@ -4,7 +4,7 @@
   <div id="contact-me">
     <p>
       誰かのために泡になりたい<br>
-      <span>gunx@fonxmail.com</span><br>
+      <a href="mailto:gunx@fonxmail.com">gunx@fonxmail.com</a><br>
       <a href="http://www.weibo.com/gunx">@Gunx</a>
     </p>
   </div>

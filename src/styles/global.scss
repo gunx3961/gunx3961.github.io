@@ -23,6 +23,8 @@ body {
 #app-header {
   @include container;
   @include background($negative-color, $positive-color);
+  @include link($negative-color, $positive-color);
+
   @media (min-width: 838px) {
     position: absolute;
     min-height: 100vh;
@@ -33,6 +35,8 @@ body {
 
 #content-container {
   @include container;
+  @include link();
+  
   @media (min-width: 838px) {
     float: none;
     width: initial;
@@ -55,17 +59,4 @@ body {
 
 *:focus {
   outline: none;
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
-
-  &:link, &:visited {
-    color: inherit;
-  }
-
-  &:hover {
-    color: $intermediate-color;
-  }
 }

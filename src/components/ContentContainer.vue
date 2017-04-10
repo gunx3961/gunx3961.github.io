@@ -4,7 +4,9 @@
       <h1>Article</h1>
       <p>In development.
         <br>正在开发中。
-        <br>ただいま工事中です。</p>
+        <br>ただいま工事中です。
+        <br><a href="blog.gunx.info">My blog</a>
+      </p>
     </article>
     <hud-button label="NORMAL"></hud-button>
     <hud-button label="MINI" mini></hud-button>

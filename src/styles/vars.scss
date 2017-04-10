@@ -32,3 +32,20 @@ $header-width: 3.2rem;
     512px 512px;
   background-position: 23px 42px;
 }
+
+@mixin link($content-color: $positive-color, $background-color: $negative-color) {
+  a {
+    // text-decoration: none;
+    cursor: pointer;
+    padding: 0 .04rem;
+
+    &:link, &:visited {
+      color: $content-color;
+    }
+
+    &:hover {
+      color: $background-color;
+      background-color: $content-color;
+    }
+  }
+}
