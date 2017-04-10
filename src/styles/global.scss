@@ -1,7 +1,45 @@
 @import '~styles/vars';
 
+html {
+  font-size: 100px;
+
+  @media (min-width: 1400px) {
+    font-size: 125px;
+  }
+
+  @media (min-width: 2000px) {
+    font-size: 150px;
+  }
+}
+
 body {
-  font-size: 16px;
+  min-height: 100vh;
+  font-size: .16rem;
+
+  @include background();
+}
+
+// layout
+#app-header {
+  @include container;
+  @include background($negative-color, $positive-color);
+  @media (min-width: 838px) {
+    position: absolute;
+    min-height: 100vh;
+    width: $header-width;
+    padding: .32rem;
+  }
+}
+
+#content-container {
+  @include container;
+  @media (min-width: 838px) {
+    float: none;
+    width: initial;
+    min-height: 100vh;
+    margin-left: $header-width;
+    padding: .32rem;
+  }
 }
 
 *, *:before, *:after {

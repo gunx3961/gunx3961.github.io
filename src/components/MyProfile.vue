@@ -2,8 +2,11 @@
 <div id="profile">  
   <div id="logo"></div>
   <div id="contact-me">
-    <span>gunx@fonxmail.com</span><br>
-    <a href="http://www.weibo.com/gunx">@Gunx</a>
+    <p>
+      誰かのために泡になりたい<br>
+      <span>gunx@fonxmail.com</span><br>
+      <a href="http://www.weibo.com/gunx">@Gunx</a>
+    </p>
   </div>
 </div>
 </template>
@@ -15,7 +18,7 @@
   box-shadow: $shadows;
 }
 
-@mixin single-color-pixelize($matrix, $color, $pixel-size: 8px) {
+@mixin single-color-pixelize($matrix, $color, $pixel-size: .08rem) {
   $shadows: ();
   $max-length: 1;
 
@@ -25,7 +28,7 @@
 
     @for $j from 1 through $str-length {
       $marker: str-slice($row, $j, $j);
-      @if $marker == "x" {
+      @if $marker == "█" {
         $shadows: append($shadows, $j * $pixel-size $i * $pixel-size $color, comma);
       }
     }
@@ -52,28 +55,28 @@
 }
 
 $logo-matrix: (
-" xxx  x   x x   x x   x   ",
-"x     x   x xx  x  x x    ",
-"x  xx x   x x x x   x     ",
-"x   x x  xx x  xx  x x    ",
-"xxxxx xxx x x   x x   x x ",
+" ███  █   █ █   █ █   █",
+"█     █   █ ██  █  █ █",
+"█  ██ █   █ █ █ █   █",
+"█   █ █  ██ █  ██  █ █",
+"█████ ███ █ █   █ █   █ █",
 "",
-"         x  xxx  xxx  xxx ",
-"           x  x x    x  x ",
-"         x x  x xxxx x  x ",
-"         x x  x x    xxxx "
+"         █  ███  ███  ███",
+"           █  █ █    █  █",
+"         █ █  █ ████ █  █",
+"         █ █  █ █    ████",
 );
 
 #logo {
-  @include single-color-pixelize($logo-matrix, $negative-color, 8px);
+  @include single-color-pixelize($logo-matrix, $negative-color, .08rem);
 }
 
 #profile {
   @include side-line($negative-color);
 
   #contact-me {
-    margin: 1rem 0;
-    line-height: 2rem;
+    margin: .16rem 0;
+    line-height: .32rem;
   }
 }
 </style>

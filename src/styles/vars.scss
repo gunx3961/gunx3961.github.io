@@ -4,9 +4,31 @@ $positive-color: #d3d3d3;
 $negative-color: #1f1f1f;
 $intermediate-color: rgba($positive-color, .15);
 
-$header-width: 20rem;
+$header-width: 3.2rem;
 
-@mixin side-line($color: $positive-color, $width: .5rem) {
+@mixin container {
+  width: 100%;
+  float: left;
+  padding: .24rem 4%;
+}
+
+@mixin side-line($color: $positive-color, $width: .08rem) {
   border-left: $width solid $color;
-  padding-left: 1rem;
+  padding-left: .16rem;
+}
+
+@mixin background($content-color: $positive-color, $background-color: $negative-color) {
+  color: $content-color;
+  background-color: $background-color;
+  background-image:
+    linear-gradient(135deg, rgba($content-color, .15) 1px, transparent 0),
+    linear-gradient(rgba($content-color, .1) 1px, transparent 0),
+    linear-gradient(90deg, rgba($content-color, .1) 1px, transparent 0),
+    linear-gradient(90deg, rgba($content-color, .1) 2px, transparent 0);
+  background-size:
+    16px 16px,
+    128px 128px,
+    128px 128px,
+    512px 512px;
+  background-position: 23px 42px;
 }

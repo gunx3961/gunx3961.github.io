@@ -30,12 +30,12 @@ button {
   position: relative;
   background: transparent;
   color: $positive-color;
-  margin: 0 3px;
+  margin: 0 .03rem;
   border: none;
-  border-top: 3px solid $positive-color;
-  border-bottom: 3px solid $positive-color;
-  padding: 10px 24px 10px 40px;
-  line-height: 16px;
+  border-top: .03rem solid $positive-color;
+  border-bottom: .03rem solid $positive-color;
+  padding: .1rem .24rem .1rem .4rem;
+  line-height: .16rem;
   font-weight: bold;
   cursor: pointer;
 
@@ -43,10 +43,10 @@ button {
     content: '';
     position: absolute;
     background: $positive-color;
-    width: 14px;
-    height: 14px;
-    left: 13px;
-    bottom: 11px;
+    width: .14rem;
+    height: .14rem;
+    left: .13rem;
+    bottom: .11rem;
   }
 
   &:focus {
@@ -72,17 +72,17 @@ button {
   }
 
   &.mini {
-    border-top: 2px solid $positive-color;
-    border-bottom: 2px solid $positive-color;
-    padding: 6px 16px 6px 26px;
-    line-height: 16px;
+    border-top: .02rem solid $positive-color;
+    border-bottom: .02rem solid $positive-color;
+    padding: .06rem .16rem .06rem .26rem;
+    line-height: .16rem;
     font-weight: normal;
 
     &::before {
-      width: 10px;
-      height: 10px;
-      left: 8px;
-      bottom: 9px;
+      width: .1rem;
+      height: .1rem;
+      left: .08rem;
+      bottom: .09rem;
     }
   }
 }
