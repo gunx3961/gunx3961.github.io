@@ -39,5 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+article {
+  overflow-x: hidden;
+}
 </style>
