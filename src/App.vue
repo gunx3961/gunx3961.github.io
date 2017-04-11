@@ -15,11 +15,6 @@ export default {
     AppHeader,
     ContentContainer,
   },
-  data() {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-    };
-  },
 };
 </script>
 

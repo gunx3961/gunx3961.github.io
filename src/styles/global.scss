@@ -20,13 +20,18 @@ body {
 }
 
 // layout
+#app {
+  @media (min-width: $latout-breakpoint) {
+    display: flex;
+  }
+}
+
 #app-header {
   @include container;
   @include background($negative-color, $positive-color);
   @include link($negative-color, $positive-color);
 
-  @media (min-width: 838px) {
-    position: absolute;
+  @media (min-width: $latout-breakpoint) {
     min-height: 100vh;
     width: $header-width;
     padding: .32rem;
@@ -37,11 +42,9 @@ body {
   @include container;
   @include link();
   
-  @media (min-width: 838px) {
-    float: none;
+  @media (min-width: $latout-breakpoint) {
     width: initial;
     min-height: 100vh;
-    margin-left: $header-width;
     padding: .32rem;
   }
 }

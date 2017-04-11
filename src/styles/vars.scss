@@ -6,6 +6,8 @@ $intermediate-color: rgba($positive-color, .15);
 
 $header-width: 3.2rem;
 
+$latout-breakpoint: 838px;
+
 @mixin container {
   width: 100%;
   float: left;
