@@ -1,9 +1,8 @@
 import marked from 'marked';
-import highlight from 'highlight.js';
 
 function AsyncHighlightAuto(value, languageSubset) {
   return new Promise((resolve) => {
-    const result = highlight.highlightAuto(value, languageSubset);
+    const result = hljs.highlightAuto(value, languageSubset);
     resolve(result);
   });
 }
