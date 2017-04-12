@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "es6-promise": "^4.1.0",
+    "highlight.js": "^9.10.0",
     "marked": "^0.3.6",
     "vue": "^2.2.6",
     "vue-router": "^2.4.0"

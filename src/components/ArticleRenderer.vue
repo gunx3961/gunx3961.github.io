@@ -2,7 +2,7 @@
   <div>
     <span v-if="loading">Loading...</span>
     <span v-if="error">Error!</span>
-    <article v-if="article" v-html="article"></article>
+    <article class="article" v-if="article" v-html="article"></article>
   </div>
 </template>
 
@@ -38,8 +38,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-article {
+<style lang="scss">
+@import '~styles/vars';
+
+.article {
   overflow-x: hidden;
+  line-height: 1.3;
+
+  p code {
+    color: #ce9178;
+  }
+
+  pre {
+    @include code-zone;
+  }
 }
+
 </style>

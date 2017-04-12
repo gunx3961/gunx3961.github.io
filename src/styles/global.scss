@@ -2,6 +2,7 @@
 
 html {
   font-size: 100px;
+  font-family: $font-stack;
 
   @media (min-width: 1400px) {
     font-size: 125px;
@@ -17,6 +18,10 @@ body {
   font-size: .16rem;
 
   @include background();
+}
+
+code {
+  font-family: $font-stack-code;
 }
 
 // layout
