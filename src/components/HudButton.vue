@@ -1,5 +1,5 @@
 <template>
-  <button :class="{ mini }">
+  <button @click="$router.push({path: 'article/async-await-in-loop'})" :class="{ mini }">
     {{ label }}
   </button>
 </template>

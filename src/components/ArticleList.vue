@@ -4,7 +4,7 @@
     <p>In development.
       <br>正在开发中。
       <br>ただいま工事中です。
-      <br><a href="blog.gunx.info">My blog</a>
+      <br>
     </p>
     <hud-button label="NORMAL"></hud-button>
     <hud-button label="MINI" mini></hud-button>

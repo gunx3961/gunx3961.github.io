@@ -48,7 +48,7 @@ code {
   @include link();
   
   @media (min-width: $latout-breakpoint) {
-    width: initial;
+    width: 100%;
     min-height: 100vh;
     padding: .32rem;
   }

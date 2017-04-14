@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <span v-if="loading">Loading...</span>
+  <div class="article-container">
+    <!--<progress-bar :loading="loading"></progress-bar>-->
+
     <span v-if="error">Error!</span>
     <article class="article" v-if="article" v-html="article"></article>
   </div>
@@ -9,11 +10,15 @@
 <script>
 import xhr from '../utils/xhr';
 import renderMarkdown from '../utils/renderer';
+import ProgressBar from './ProgressBar';
 
 export default {
+  components: {
+    ProgressBar,
+  },
   data() {
     return {
-      loading: false,
+      loading: true,
       error: null,
       article: null,
     };
@@ -29,8 +34,10 @@ export default {
         })
         .then((html) => {
           this.article = html;
+          this.loading = false;
         }, (err) => {
           this.error = err;
+          console.error('Parsing error: ', this.error);
         });
     },
   },
@@ -40,6 +47,10 @@ export default {
 
 <style lang="scss">
 @import '~styles/vars';
+
+.article-container {
+  position: relative;
+}
 
 .article {
   overflow-x: hidden;

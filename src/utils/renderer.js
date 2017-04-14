@@ -1,27 +1,30 @@
 import marked from 'marked';
 
-function AsyncHighlightAuto(value, languageSubset) {
+function AsyncHighlight(lang, value) {
   return new Promise((resolve) => {
-    const result = hljs.highlightAuto(value, languageSubset);
-    resolve(result);
+    if (!hljs.getLanguage(lang)) resolve(value);
+    const result = hljs.highlight(lang, value);
+    resolve(result.value);
   });
 }
 
-marked.setOptions({
-  highlight(code, lang, callback) {
-    AsyncHighlightAuto(code)
-      .then((result) => {
-        callback(null, result.value);
-      }, (err) => {
-        callback(err);
-      });
-  },
-});
+if (hljs) {
+  marked.setOptions({
+    highlight(code, lang, callback) {
+      AsyncHighlight(lang, code)
+        .then((result) => {
+          callback(null, result);
+        }, (err) => {
+          callback(err);
+        });
+    },
+  });
+}
 
 function renderMarkdown(mdString) {
   return new Promise((resolve, reject) => {
     marked(mdString, (err, content) => {
-      if (err) reject('Parsing error');
+      if (err) reject(err);
       resolve(content);
     });
   });
