@@ -1,5 +1,5 @@
 <template>
-  <div class="progress">
+  <div class="progress" :class="{ pending: progress < 100 }">
     <div
       class="progress-bar"
       :style="{
@@ -12,18 +12,10 @@
 <script>
 export default {
   props: {
-    loading: {
-      type: Boolean,
-      default() { return true; },
+    progress: {
+      type: Number,
+      default() { return 0; },
     },
-  },
-  data() {
-    return { progress: 0 };
-  },
-  buforeUpdate() {
-    if (this.loading === false) {
-      this.progress = 100;
-    }
   },
 };
 </script>
@@ -44,15 +36,17 @@ export default {
   position: absolute;
   width: 100%;
   height: .1rem;
-  border: 1px solid $positive-color;
   padding: 2px;
 
-  animation: breathe .2s linear infinite alternate;
+  &.pending {
+    border: 1px solid $positive-color;
+    animation: breathe .2s linear infinite alternate;
+  }
 
   .progress-bar {
     height: 100%;
     background-color: $positive-color;
-    transition: width .15s;
+    transition: width .3s;
   }
 }
 

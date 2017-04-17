@@ -1,9 +1,11 @@
 <template>
   <div class="article-container">
-    <!--<progress-bar :loading="loading"></progress-bar>-->
+    <progress-bar :progress="progress"></progress-bar>
 
     <span v-if="error">Error!</span>
-    <article class="article" v-if="article" v-html="article"></article>
+    <transition name="slide-fade">
+      <article class="article" v-if="article" v-html="article"></article>
+    </transition>
   </div>
 </template>
 
@@ -18,9 +20,11 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      loading: false,
       error: null,
       article: null,
+      progress: 0,
+      intervalId: null,
     };
   },
   created() {
@@ -28,17 +32,32 @@ export default {
   },
   methods: {
     getArticle() {
+      this.fetchStart();
       xhr.get(`article/${this.$route.params.key}`)
         .then(res => renderMarkdown(res.data.content), (err) => {
           this.error = err;
         })
         .then((html) => {
+          this.fetchEnd();
           this.article = html;
-          this.loading = false;
         }, (err) => {
           this.error = err;
           console.error('Parsing error: ', this.error);
         });
+    },
+    fetchStart() {
+      this.loading = true;
+      this.progress = 15;
+      this.intervalId = setInterval(() => {
+        this.progress = this.progress < 65 ?
+          this.progress + 10 + (Math.random() * 10) :
+          this.progress;
+      }, 0.2e3);
+    },
+    fetchEnd() {
+      this.loading = false;
+      this.progress = 100;
+      clearInterval(this.intervalId);
     },
   },
 
@@ -64,5 +83,4 @@ export default {
     @include code-zone;
   }
 }
-
 </style>
