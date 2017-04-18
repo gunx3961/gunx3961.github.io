@@ -1,6 +1,6 @@
 <template>
 <div id="profile">  
-  <div id="logo"></div>
+  <div id="logo" @click="$router.push({ path: '/' })"></div>
   <div id="contact-me">
     <p>
       誰かのために泡になりたい<br>
@@ -69,6 +69,8 @@ $logo-matrix: (
 
 #logo {
   @include single-color-pixelize($logo-matrix, $negative-color, .08rem);
+
+  cursor: pointer;
 }
 
 #profile {

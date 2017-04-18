@@ -1,21 +1,18 @@
 <template>
-  <div>
-    <h1>Article List</h1>
-    <p>In development.
-      <br>正在开发中。
-      <br>ただいま工事中です。
-      <br>
-    </p>
-    <hud-button label="NORMAL"></hud-button>
-    <hud-button label="MINI" mini></hud-button>
-  </div>
+  <ul>
+    <li v-for="article in articleList">
+      {{ article.title }}
+    </li>
+  </ul>
 </template>
-<script>
-import HudButton from './HudButton';
 
+<script>
 export default {
-  components: {
-    HudButton,
+  props: {
+    articleList: {
+      type: Array,
+      default: null,
+    },
   },
 };
 </script>

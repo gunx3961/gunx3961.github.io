@@ -5,11 +5,6 @@
 </template>
 
 <script>
-import HudButton from './HudButton';
-
 export default {
-  components: {
-    HudButton,
-  },
 };
 </script>
