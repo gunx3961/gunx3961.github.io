@@ -77,6 +77,6 @@ code {
   transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-enter, .slide-fade-leave-active {
-  transform: translateX(15px);
+  transform: translateX(.15rem);
   opacity: 0;
 }

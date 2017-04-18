@@ -4,7 +4,7 @@
 
     <span v-if="error">Error!</span>
     <transition name="slide-fade">
-      <article @click="loading = !loading" class="article" v-if="article" v-html="article"></article>
+      <article class="article" v-if="article" v-html="article"></article>
     </transition>
   </div>
 </template>

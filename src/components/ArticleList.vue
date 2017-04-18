@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="article in articleList">
-      {{ article.title }}
+      <router-link :to="`/article/${article.key}`">{{ article.title }}</router-link>
     </li>
   </ul>
 </template>

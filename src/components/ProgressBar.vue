@@ -1,9 +1,10 @@
 <template>
   <div class="progress" :class="{ pending }">
-    <div
+    <div v
       class="progress-bar"
       :style="{
         width: `${progress}%`,
+        transition,
       }"
     >
     </div>
@@ -19,7 +20,10 @@ export default {
     },
   },
   data() {
-    return { progress: 0 };
+    return {
+      progress: 0,
+      transition: 'width .3s',
+    };
   },
   watch: {
     pending(val, oldVal) {
@@ -32,14 +36,24 @@ export default {
   },
   methods: {
     fetchStart() {
+      if (this.progress !== 0) {
+        this.transition = 'none';
+        this.progress = 0;
+      }
       this.progress = 15;
       this.intervalId = setInterval(() => {
+        if (this.transition === 'none') {
+          this.transition = 'width .3s';
+        }
         this.progress = this.progress < 65 ?
           this.progress + 10 + (Math.random() * 10) :
           this.progress;
       }, 0.2e3);
     },
     fetchEnd() {
+      if (this.transition === 'none') {
+        this.transition = 'width .3s';
+      }
       this.progress = 100;
       clearInterval(this.intervalId);
     },
@@ -68,15 +82,12 @@ export default {
   &.pending {
     border: 1px solid $positive-color;
     animation: breathe .2s linear infinite alternate;
-
-    .progress-bar {
-      transition: width .3s;
-    }
   }
 
   .progress-bar {
     height: 100%;
     background-color: $positive-color;
+    // transition: width .3s;
   }
 }
 </style>
