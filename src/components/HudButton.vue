@@ -1,5 +1,8 @@
 <template>
-  <button @click="$router.push({path: 'article/async-await-in-loop'})" :class="{ mini }">
+  <button
+    :class="{ mini }"
+    @click="onClick"
+  >
     {{ label }}
   </button>
 </template>
@@ -14,6 +17,10 @@ export default {
     mini: {
       type: Boolean,
       default() { return false; },
+    },
+    onClick: {
+      type: Function,
+      default() { return () => {}; },
     },
   },
   data() {
@@ -30,7 +37,7 @@ button {
   position: relative;
   background: transparent;
   color: $positive-color;
-  margin: 0 .03rem;
+  margin: .08rem .03rem;
   border: none;
   border-top: .03rem solid $positive-color;
   border-bottom: .03rem solid $positive-color;

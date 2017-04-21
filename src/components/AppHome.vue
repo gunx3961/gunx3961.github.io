@@ -2,15 +2,14 @@
   <div class="app-home">
     <progress-bar :pending="loading"></progress-bar>
     <div>
-      <h1>Article List</h1>
+      <transition name="slide-fade">
+        <article-list v-if="articleList" :articleList="articleList"></article-list>
+      </transition>
       <p>In development.
         <br>正在开发中。
         <br>ただいま工事中です。
         <br>
       </p>
-      <hud-button label="NORMAL"></hud-button>
-      <hud-button label="MINI" mini></hud-button>
-      <article-list :articleList="articleList"></article-list>
     </div>
   </div>
 </template>
