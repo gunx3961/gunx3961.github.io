@@ -3,6 +3,7 @@
     <li class="article-item" v-for="article in articleList">
       <section>
         <h1>{{ article.title }}</h1>
+        <tag-group :tags="article.tags"></tag-group>
         <hud-button
           mini
           label="READ MORE >"
@@ -15,10 +16,12 @@
 
 <script>
 import HudButton from './HudButton';
+import TagGroup from './TagGroup';
 
 export default {
   components: {
     HudButton,
+    TagGroup,
   },
   props: {
     articleList: {

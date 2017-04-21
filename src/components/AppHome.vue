@@ -15,14 +15,12 @@
 </template>
 
 <script>
-import HudButton from './HudButton';
-import ArticleList from './ArticleList';
 import xhr from '../utils/xhr';
 import ProgressBar from './ProgressBar';
+import ArticleList from './ArticleList';
 
 export default {
   components: {
-    HudButton,
     ArticleList,
     ProgressBar,
   },
