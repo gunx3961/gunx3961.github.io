@@ -5,11 +5,7 @@
       <transition name="slide-fade">
         <article-list v-if="articleList" :articleList="articleList"></article-list>
       </transition>
-      <p>In development.
-        <br>正在开发中。
-        <br>ただいま工事中です。
-        <br>
-      </p>
+
     </div>
   </div>
 </template>
@@ -52,6 +48,7 @@ export default {
 
 <style lang="scss">
 .app-home {
+  min-height: .1rem;
   overflow-x: hidden;
   position: relative;
 }
