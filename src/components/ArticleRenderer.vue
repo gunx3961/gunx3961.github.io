@@ -4,7 +4,13 @@
 
     <span v-if="error">Error!</span>
     <transition name="slide-fade">
-      <article class="article" v-if="article" v-html="article"></article>
+      <div>
+        <div v-if="article" class="meta">
+          <tag-group :tags="data.tags"></tag-group>
+          <timestamp :time="data.createdAt"></timestamp>
+        </div>
+        <article class="article" v-if="article" v-html="article"></article>
+      </div>
     </transition>
   </div>
 </template>
@@ -13,16 +19,21 @@
 import xhr from '../utils/xhr';
 import renderMarkdown from '../utils/renderer';
 import ProgressBar from './ProgressBar';
+import TagGroup from './TagGroup';
+import Timestamp from './Timestamp';
 
 export default {
   components: {
     ProgressBar,
+    TagGroup,
+    Timestamp,
   },
   data() {
     return {
       loading: false,
       error: null,
       article: null,
+      data: null,
       intervalId: null,
     };
   },
@@ -33,7 +44,10 @@ export default {
     getArticle() {
       this.loading = true;
       xhr.get(`article/${this.$route.params.key}`)
-        .then(res => renderMarkdown(res.data.content), (err) => {
+        .then((res) => {
+          this.data = res.data;
+          return renderMarkdown(res.data.content);
+        }, (err) => {
           this.error = err;
         })
         .then((html) => {
@@ -54,6 +68,12 @@ export default {
 
 .article-container {
   position: relative;
+}
+
+.meta {
+  display: flex;
+  padding-top: .2rem;
+  justify-content: space-between;
 }
 
 .article {

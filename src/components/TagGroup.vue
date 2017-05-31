@@ -23,10 +23,12 @@ export default {
   background: linear-gradient(60deg, transparent $height / 2, $color 0) left;
 }
 
+$tag-height: .2rem;
 .tag-group {
-  padding: .08rem 0;
+  padding: 0;
+  margin: 0;
+  height: $tag-height;
 
-  $tag-height: .2rem;
 
   .tag {
     display: inline-block;
@@ -37,7 +39,8 @@ export default {
     font-size: .12rem;
     height: $tag-height;
     line-height: $tag-height;
-    margin: 0 .04rem;
+    margin: .04rem;
+    margin-top: 0;
     padding:0 .08rem 0 .16rem;
     cursor: pointer;
 
