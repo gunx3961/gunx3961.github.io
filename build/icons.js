@@ -86,8 +86,15 @@ function generateFileContent(iconName) {
 `;
 }
 
+function toPascalCase(hyphenStyleName) {
+  if (typeof hyphenStyleName !== 'string') throw new TypeError('value to convert must be a string');
+  const replacer = (match, p1) => p1.toUpperCase();
+  const camelCase = hyphenStyleName.replace(/-([a-zA-Z])/g, replacer);
+  return `${camelCase[0].toUpperCase()}${camelCase.slice(1)}`;
+}
+
 function getFilePath(iconName) {
-  const filename = `${iconName[0].toUpperCase()}${iconName.slice(1)}.vue`;
+  const filename = `${toPascalCase(iconName)}.vue`;
   return path.resolve('.', DIST, filename);
 }
 
