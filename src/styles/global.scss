@@ -43,6 +43,23 @@ code {
   }
 }
 
+#app-footer {
+  position: fixed;
+  right: 0;
+  bottom: .04rem;
+  opacity: .6;
+  font-size: .14rem;
+  color: $positive-color;
+
+  &>span {
+    margin: 0 .1rem;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
 #content-container {
   @include container;
   @include link();
