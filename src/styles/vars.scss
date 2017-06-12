@@ -60,8 +60,15 @@ $latout-breakpoint: 838px;
 
   display: block;
   overflow-x: auto;
-  background: $intermediate-color;
+  background: no-repeat right bottom $intermediate-color;
+  background-size: 70%;
   padding: .08rem;
+
+  // language identifer
+  &.lang-javascript {
+    background-image: url(/assets/img/lang-javascript.svg);
+  }
+
 
   .hljs-comment,
   .hljs-quote {
