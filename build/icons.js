@@ -29,6 +29,10 @@ function generateFileContent(iconName) {
     :height="_height"
     :viewBox="_viewBox"
     aria-hidden="true"
+    :style="{
+      width: _width,
+      height: _height,
+    }"
   >
     ${octicon.path}
   </svg>
