@@ -1,15 +1,35 @@
 <template>
-<div id="profile">  
-  <div id="logo" @click="$router.push({ path: '/' })"></div>
-  <div id="contact-me">
-    <p>
-      誰かのために泡になりたい<br>
-      <span>██████████</span><br>
-      <span>█████</span>
-    </p>
+  <div id="profile">
+    <div id="logo" @click="$router.push({ path: '/' })"></div>
+    <div id="contact-me">
+      <p>
+        <i>誰かのために泡になりたい</i>
+      </p>
+      <div class="link-group">
+        <icon-link url="https://github.com/gunx3961">
+          <icon-mark-github height="36"></icon-mark-github>
+        </icon-link>
+        <icon-link url="mailto:gunx@foxmail.com">
+          <icon-mail height="36"></icon-mail>
+        </icon-link>
+      </div>
+    </div>
   </div>
-</div>
 </template>
+
+<script>
+import IconLink from './IconLink';
+import IconMail from './icons/Mail';
+import IconMarkGithub from './icons/MarkGithub';
+
+export default {
+  components: {
+    IconLink,
+    IconMail,
+    IconMarkGithub,
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 @import '~styles/vars';
@@ -77,8 +97,12 @@ $logo-matrix: (
   @include side-line($negative-color);
 
   #contact-me {
-    margin: .16rem 0;
-    line-height: .32rem;
+    opacity: .6;
+    padding: .08rem 0;
+    
+    .link-group>* {
+      margin-right: .12rem;
+    }
   }
 }
 </style>
