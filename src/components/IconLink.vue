@@ -24,7 +24,7 @@ a {
   &:hover {
     opacity: 1;
     color: initial !important;
-    background-color: initial !important;
+    background-color: transparent !important;
   }
 }
 </style>
