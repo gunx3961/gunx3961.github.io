@@ -1,8 +1,0 @@
-.DS_Store
-node_modules/
-npm-debug.log
-debug.log
-typings/
-
-# no builded icon files
-src/components/icons/
