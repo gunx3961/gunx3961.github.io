@@ -1,0 +1,11 @@
+{
+  "_id": "f93d355c-c3c6-452e-be82-f047c778025c",
+  "title": "在循环中使用 async/await",
+  "key": "async-await-in-loop",
+  "createdAt": 1489370117831,
+  "tags": [
+    "javascript",
+    "ES7",
+    "async/await"
+  ]
+}
