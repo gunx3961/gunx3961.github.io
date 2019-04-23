@@ -5,7 +5,8 @@
   "main": "''",
   "scripts": {
     "dev": "next",
-    "build-site": "next build && next export && touch ./out/.nojekyll",
+    "build-site": "next build && next export && ./after_build.sh",
+    "publish": "git subtree push --prefix out origin master",
     "serve": "npx serve out"
   },
   "repository": {
