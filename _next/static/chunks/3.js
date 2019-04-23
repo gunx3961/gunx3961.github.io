@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./archives/dev/typedarray-vs-dataview/typedarray-vs-dataview.md":
-/*!***********************************************************************!*\
-  !*** ./archives/dev/typedarray-vs-dataview/typedarray-vs-dataview.md ***!
-  \***********************************************************************/
+/***/ "./blog-archives/posts/dev/typedarray-vs-dataview/typedarray-vs-dataview.md":
+/*!**********************************************************************************!*\
+  !*** ./blog-archives/posts/dev/typedarray-vs-dataview/typedarray-vs-dataview.md ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -15,7 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mdx-js/tag */ "./node_modules/@mdx-js/tag/dist/index.js");
 /* harmony import */ var _mdx_js_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mdx_js_tag__WEBPACK_IMPORTED_MODULE_2__);
 
-var _jsxFileName = "/mnt/c/dev/gunx3961.github.io/archives/dev/typedarray-vs-dataview/typedarray-vs-dataview.md";
+var _jsxFileName = "/mnt/c/dev/gunx3961.github.io/blog-archives/posts/dev/typedarray-vs-dataview/typedarray-vs-dataview.md";
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
