@@ -1,3 +1,7 @@
+const withMDX = require('@zeit/next-mdx')({
+  extension: /.mdx?$/
+});
+
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -13,7 +17,8 @@ async function gatherPosts() {
   return allPosts;
 }
 
-module.exports = {
+const config = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   exportPathMap: async () => {
     const allPosts = await gatherPosts();
 
@@ -32,3 +37,5 @@ module.exports = {
     };
   }
 };
+
+module.exports = withMDX(config);

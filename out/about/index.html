@@ -1,0 +1,49 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8" class="next-head"/><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" class="next-head"/><link rel="preload" href="/_next/static/lLlnYiNjRZPxc0_YRqmZc/pages/about.js" as="script"/><link rel="preload" href="/_next/static/lLlnYiNjRZPxc0_YRqmZc/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-bf7f06ad72cb6de3e74c.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.b4be54e6a379d812a80a.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-50a3cc69fbc016d00f83.js" as="script"/></head><body><div id="__next"><p>Welcome to About!</p><div><h1>在循环中使用 async/await</h1><p><em>随着 Nodejs 7.6.0 的发布，开发者终于可以在不加 flag 的情况下使用 async/await 了！</em></p><h2>0x00 发现问题</h2><p>尝试遍历数组，在 <code>foreach</code> 方法中传入一个 <code>async</code> 函数。</p><pre><code class="language-javascript" metaString="">async function insert(db, categories) {
+  categories.forEach(async (category) =&gt; {
+      await db.insertOne(category);
+      console.log(`Document created: ${category}.`);
+    });
+  });
+
+  await db.close();
+  console.log(&#x27;close!&#x27;);
+}
+</code></pre><p>结果自然是在遍历 <code>categories</code> 回调完成之前就会先关闭 db 连接，导致 insert 操作不能顺利进行。<br/>那么问题来了，在循环操作中使用 <em>async/await</em> 的正确姿势是什么？</p><h2>0x01 并行的异步操作</h2><p>我们来完成一个异步 log 的功能来模拟各种异步任务：</p><pre><code class="language-javascript" metaString="">const sequence = [3e3, 2e3, 1e3];
+
+function wait(ms) {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      resolve(`waited ${ms} ms!`);
+    }, ms);
+  });
+}
+
+sequence.forEach(async (ms) =&gt; {
+  const result = await wait(ms);
+  console.log(result);
+});
+</code></pre><p>运行这段代码，输出为：</p><pre><code class="language-nohighlight" metaString="">waited 1000 ms!
+waited 2000 ms!
+waited 3000 ms!
+</code></pre><p>可以看到，我们通过 <code>Array.prototype.forEach</code> 方法对 <code>sequence</code> 中的每一个元素添加了一个 <code>async</code> 回调函数，并行执行并输出结果。<br/>这个时候我们修改一下需求，要求在所有异步任务完成之后提示用户，应该如何是好呢？</p><p><code>async</code> 函数返回一个 <code>Promise</code> 对象，在 <code>forEach</code> 中我们并没有对其做任何状态改变的观察，而是仅依靠函数中的副作用完成了对结果的输出。<br/>如果想要对每一个 <code>Promise</code> 对象都进行处理，应该结合 Promise.all 并使用 <code>Array.prototype.map</code> 来遍历数组：</p><pre><code class="language-javascript" metaString="">Promise.all(sequence.map(async (ms) =&gt; {
+  const result = await wait(ms);
+  console.log(result);
+}))
+  .then(() =&gt; { console.log(&#x27;Complete!&#x27;); });
+</code></pre><p>输出结果：</p><pre><code class="language-nohighlight" metaString="">waited 1000 ms!
+waited 2000 ms!
+waited 3000 ms!
+Complete!
+</code></pre><h2>0x02 串行的异步操作</h2><p>我们再次更改需求，现在我们要求异步操作按照数组中元素顺序依次执行，在上一个操作完成后再执行下一步。<br/>为了达到这样的效果，应该使用ES6中的 <code>for...of</code> 来进行遍历操作：</p><pre><code class="language-javascript" metaString="">async function loopInSequence() {
+  for (const ms of sequence) {
+    const result = await wait(ms);
+    console.log(result);
+  }
+}
+loopInSequence()
+  .then(() =&gt; { console.log(&#x27;Complete!&#x27;); });
+</code></pre><p>在 <code>for...of</code> 循环中，<code>await</code> 操作能够按照预期执行，输出结果：</p><pre><code class="language-nohighlight" metaString="">waited 3000 ms!
+waited 2000 ms!
+waited 1000 ms!
+Complete!
+</code></pre></div></div><script id="__NEXT_DATA__" type="application/json">{"dataManager":"[]","props":{"pageProps":{}},"page":"/about","query":{},"buildId":"lLlnYiNjRZPxc0_YRqmZc","dynamicBuildId":false,"nextExport":true}</script><script async="" id="__NEXT_PAGE__/about" src="/_next/static/lLlnYiNjRZPxc0_YRqmZc/pages/about.js"></script><script async="" id="__NEXT_PAGE__/_app" src="/_next/static/lLlnYiNjRZPxc0_YRqmZc/pages/_app.js"></script><script src="/_next/static/runtime/webpack-bf7f06ad72cb6de3e74c.js" async=""></script><script src="/_next/static/chunks/commons.b4be54e6a379d812a80a.js" async=""></script><script src="/_next/static/runtime/main-50a3cc69fbc016d00f83.js" async=""></script></body></html>
