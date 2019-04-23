@@ -1,12 +1,13 @@
+const fs = require('fs').promises;
+const path = require('path');
+const withSass = require('@zeit/next-sass');
+const withCSS = require('@zeit/next-css');
 const withMDX = require('@zeit/next-mdx')({
   extension: /.mdx?$/
 });
 
-const fs = require('fs').promises;
-const path = require('path');
-
 async function gatherPosts() {
-  const archiveRoot = path.resolve(__dirname, 'archives');
+  const archiveRoot = path.resolve(__dirname, 'blog-archives/posts');
   const categories = await fs.readdir(archiveRoot);
 
   const allPosts = await Promise.all(
@@ -19,6 +20,7 @@ async function gatherPosts() {
 
 const config = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  cssModules: true,
   exportPathMap: async () => {
     const allPosts = await gatherPosts();
 
@@ -38,4 +40,4 @@ const config = {
   }
 };
 
-module.exports = withMDX(config);
+module.exports = withMDX(withSass(withCSS(config)));

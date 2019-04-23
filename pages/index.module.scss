@@ -1,0 +1,60 @@
+@mixin box-shadow($shadows...) {
+  box-shadow: $shadows;
+}
+@mixin single-color-pixelize($matrix, $color, $pixel-size: .08rem) {
+  $shadows: ();
+  $max-length: 1;
+  @for $i from 1 through length($matrix) {
+    $row: nth($matrix, $i);
+    $str-length: str-length($row);
+    @for $j from 1 through $str-length {
+      $marker: str-slice($row, $j, $j);
+      @if $marker == "█" {
+        $shadows: append($shadows, $j * $pixel-size $i * $pixel-size $color, comma);
+      }
+    }
+    @if $str-length > $max-length {
+      $max-length: $str-length;
+    }
+  }
+  position: relative;
+  width: $max-length * $pixel-size;
+  height: length($matrix) * $pixel-size;
+  &::after {
+    content: "";
+    position: absolute;
+    left: -$pixel-size;
+    top: -$pixel-size;
+    width: $pixel-size;
+    height: $pixel-size;
+    display: block;
+    @include box-shadow($shadows);
+  }
+}
+$logo-matrix: (
+" ███  █   █ █   █ █   █",
+"█     █   █ ██  █  █ █",
+"█  ██ █   █ █ █ █   █",
+"█   █ █  ██ █  ██  █ █",
+"█████ ███ █ █   █ █   █ █",
+"",
+"         █  ███  ███  ███",
+"           █  █ █    █  █",
+"         █ █  █ ████ █  █",
+"         █ █  █ █    ████",
+);
+
+
+.siteLogo {
+  @include single-color-pixelize($logo-matrix, #666, .10rem);
+  cursor: pointer;
+}
+
+.intro {
+  margin: .32rem;
+  
+  .introText {
+    line-height: .48rem;
+    margin: .64rem 0;
+  }
+}

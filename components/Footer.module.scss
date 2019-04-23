@@ -1,0 +1,9 @@
+@import '../styles/vars';
+
+.footer {
+  position: fixed;
+  bottom: .06rem;
+  left: .12rem;
+  color: gray;
+  font-size: $font-size-s2;
+}

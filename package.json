@@ -23,8 +23,11 @@
   },
   "homepage": "https://github.com/gunx3961/gunx3961.github.io#readme",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "@zeit/next-mdx": "^1.2.0",
+    "@zeit/next-sass": "^1.0.1",
     "next": "^8.1.0",
+    "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

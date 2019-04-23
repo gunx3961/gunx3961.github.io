@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
-/***/ "./archives/dev/es-modules-a-cartoon-deep-dive/es-modules-a-cartoon-deep-dive.md":
-/*!***************************************************************************************!*\
-  !*** ./archives/dev/es-modules-a-cartoon-deep-dive/es-modules-a-cartoon-deep-dive.md ***!
-  \***************************************************************************************/
+/***/ "./blog-archives/posts/dev/es-modules-a-cartoon-deep-dive/es-modules-a-cartoon-deep-dive.md":
+/*!**************************************************************************************************!*\
+  !*** ./blog-archives/posts/dev/es-modules-a-cartoon-deep-dive/es-modules-a-cartoon-deep-dive.md ***!
+  \**************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -15,7 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mdx-js/tag */ "./node_modules/@mdx-js/tag/dist/index.js");
 /* harmony import */ var _mdx_js_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mdx_js_tag__WEBPACK_IMPORTED_MODULE_2__);
 
-var _jsxFileName = "/mnt/c/dev/gunx3961.github.io/archives/dev/es-modules-a-cartoon-deep-dive/es-modules-a-cartoon-deep-dive.md";
+var _jsxFileName = "/mnt/c/dev/gunx3961.github.io/blog-archives/posts/dev/es-modules-a-cartoon-deep-dive/es-modules-a-cartoon-deep-dive.md";
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
@@ -2082,7 +2082,7 @@ var _jsxFileName = "/mnt/c/dev/gunx3961.github.io/archives/dev/es-modules-a-cart
       lineNumber: 148
     },
     __self: this
-  }, "\uFF08\u8BD1\u8005\uFF1A\u591A\u8BF4\u4E00\u53E5\uFF0C\u5728\u4E0D\u89E3\u51B3\u6D4F\u89C8\u5668\u7AEF\u7684\u4F9D\u8D56\u5173\u7CFB\u5C42\u7EA7\u6253\u5E73\u7684\u95EE\u9898\u524D\uFF0C\u6253\u5305\u65B9\u6848\u53EF\u80FD\u624D\u662F\u94F6\u5F39\u3002\uFF09"));
+  }, "\uFF08\u6211\u89C9\u5F97\uFF1A\u5728\u4E0D\u89E3\u51B3\u6D4F\u89C8\u5668\u7AEF\u7684\u4F9D\u8D56\u5173\u7CFB\u5C42\u7EA7\u6253\u5E73\u7684\u95EE\u9898\u524D\uFF0C\u6253\u5305\u65B9\u6848\u53EF\u80FD\u624D\u662F\u94F6\u5F39\u3002\uFF09"));
 });
 
 /***/ }),

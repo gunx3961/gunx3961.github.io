@@ -1,0 +1,33 @@
+@import './vars';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 625%;
+}
+
+body {
+  font-family: $font-stack;
+  font-size: $font-size-normal;
+  background-color: #eee;
+  color: #666;
+}
+
+a {
+  // text-decoration: none;
+  cursor: pointer;
+  // padding: 0 .04rem;
+
+  &:link, &:visited {
+    color: currentColor;
+  }
+
+  // &:hover {
+  //   color: $background-color;
+  //   background-color: $content-color;
+  // }
+}
